@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import reactLogo from "../../assets/react.svg";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -9,10 +10,13 @@ const Login = () => {
     formState: { errors, isValid },
   } = useForm();
 
+  const navigate = useNavigate();
+
   const handleFormSubmit = (data) => {
     console.log(data);
     const user = data;
     localStorage.setItem("user", user);
+    navigate("/");
   };
   return (
     <>
